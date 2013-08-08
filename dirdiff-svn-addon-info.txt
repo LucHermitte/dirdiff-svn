@@ -6,9 +6,7 @@
         "repository" : {"type": "git", "url": "git://github.com/LucHermitte/dirdiff-svn.git"},
         "dependencies" : {
             "lh-vim-lib" : {"type" : "svn", "url" : "http://lh-vim.googlecode.com/svn/vim-lib/trunk"},
-            "vcscommand"
+            "vcscommand" : {}
         },
         "description" : "Vim plugin to provide a DirDiff-like interface over the VCS Command plugin."
 }
-
-
