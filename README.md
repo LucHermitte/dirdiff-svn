@@ -23,6 +23,8 @@ You can mark the files that you have already checked by hitting `<space>`. Hit
 
 Eventually, Hit `<leader>de` to end the svn diff session. 
 
+Note: If you've never heard of `<leader>`, check `:h <Leader>`. Anyway, it's likely to be `\` in your vim sessions.
+
 
 Installation Requirements:
 -------------------------
