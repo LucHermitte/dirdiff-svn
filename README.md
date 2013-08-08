@@ -9,6 +9,8 @@ As a long time user of
 for something similar in order to navigate through the files changed in my
 projects managed under SVN. This plugin is a quick answer to that need.
 
+![little screen capture](https://raw.github.com/LucHermitte/dirdiff-svn/master/doc/capture1.png "Screen capture ... on lh-vim-lib")
+
 Usage:
 --------
 
