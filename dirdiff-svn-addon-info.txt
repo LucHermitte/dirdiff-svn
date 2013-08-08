@@ -1,0 +1,14 @@
+{
+    "name" : "dirdiff-svn",
+        "version" : "dev",
+        "author" : "Luc Hermitte <http://code.google.com/p/lh-vim/wiki/contact>",
+        "maintainer" : "Luc Hermitte <http://code.google.com/p/lh-vim/wiki/contact>",
+        "repository" : {"type": "git", "url": "git://github.com/LucHermitte/dirdiff-svn.git"},
+        "dependencies" : {
+            "lh-vim-lib" : {"type" : "svn", "url" : "http://lh-vim.googlecode.com/svn/vim-lib/trunk"},
+            "vcscommand"
+        },
+        "description" : "Vim plugin to provide a DirDiff-like interface over the VCS Command plugin."
+}
+
+
