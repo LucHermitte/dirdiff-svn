@@ -47,21 +47,22 @@ endfunction
 "------------------------------------------------------------------------
 " ## Exported functions {{{1
 
-" Function: lh#svn#quit() {{{3
+" Function: lh#svn#quit() {{{2
 function! lh#svn#quit()
   if exists('s:dialog')
     silent exe 'bw ' . (s:dialog.id)
   endif
 endfunction
 
-" Function: lh#svn#diff() {{{3
+" Function: lh#svn#diff() {{{2
 function! lh#svn#diff()
   " close this buffer if already open
-  silent! bw! svn-dirdiff
+  let s:k_buffer_name = 'file-selector'
+  exe 'silent! bw! '.s:k_buffer_name
 
   let s:changed_files = split(system('svn st'), '\n')
   let s:dialog = lh#buffer#dialog#new(
-        \ 'file-selector',
+        \ s:k_buffer_name,
         \ 'svn dirdiff '.g:loaded_dirdiff_svn.': Select a changed file to explore modifications',
         \ 'bot',
         \ 0,
@@ -100,7 +101,7 @@ endfunction
 
 "------------------------------------------------------------------------
 " ## Internal functions {{{1
-" Function: lh#svn#_select(item, ...) {{{3
+" Function: lh#svn#_select(item, ...) {{{2
 function! lh#svn#_select(item, ...)
   if len(a:item.selection) > 1
     " this is an assert
@@ -116,15 +117,17 @@ function! lh#svn#_select(item, ...)
   call s:DiffToSvn(s:changed_files[selection])
 endfunction
 
-" Function: s:DiffToSvn(status_line) {{{3
+" Function: s:DiffToSvn(status_line) {{{2
 let s:current_diff = ''
 function! s:DiffToSvn(status_line)
   let [status, filename] = split(a:status_line)
   let original_window = lh#buffer#find(filename)
   if original_window > 0 " already there
-    call setbufvar(winbufnr(original_window), 'dirdiff_svn_wasthere', 1)
+    let original_buffer = winbufnr(original_window)
+    call setbufvar(original_buffer, 'dirdiff_svn_wasthere', 1)
   else
     silent exe 'sp '.filename
+    let original_buffer = bufnr('%')
   endif
 
   if s:current_diff == filename
@@ -144,7 +147,7 @@ function! s:DiffToSvn(status_line)
   endif
 endfunction
 
-" Function: s:CloseCurrentDiff([new_current_file]) {{{3
+" Function: s:CloseCurrentDiff([new_current_file]) {{{2
 function! s:CloseCurrentDiff(...)
   if a:0>0 && s:current_diff == a:1
     return 1
@@ -163,7 +166,7 @@ function! s:CloseCurrentDiff(...)
   endif
 endfunction
 
-" Function: s:Check(line) {{{3
+" Function: s:Check(line) {{{2
 function! s:Check(line)
   try 
     set noro
