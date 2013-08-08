@@ -12,41 +12,40 @@ projects managed under SVN. This plugin is a quick answer to that need.
 Usage:
 --------
 
-Hit <leader>ds to start a svn diff session. The current path (see :echo
-getcwd()) will be used to determine which files are considered. (In other
-words, this plugin works on the files returned by cd getcwd() &amp;&amp; svn
-st).
+Hit `<leader>ds` to start a svn diff session. The current path (see `:echo getcwd()`)
+will be used to determine which files are considered. (In other
+words, this plugin works on the files returned by `cd getcwd() && svn st`).
 
 Then, you'll be able to navigate through the files that have changed to see the
-modifications (hit <enter>).
-You can mark the files that you have already checked by hitting <space>. Hit
-space again to un-conceal these files.
+modifications (hit `<enter>`).  
+You can mark the files that you have already checked by hitting `<space>`. Hit
+`<space>` again to un-conceal these files.
 
-Eventually, Hit <leader>de to end the svn diff session. 
+Eventually, Hit `<leader>de` to end the svn diff session. 
 
 
 Installation Requirements:
 -------------------------
 * [Vim 7.3+](http://www.vim.org), compiled with python support
 * [lh-vim-lib](http://code.google.com/p/lh-vim/wiki/lhVimLib),
-* [VCS command](http://www.vim.org/scripts/script.php?script_id=90),
+* [VCS command](http://www.vim.org/scripts/script.php?script_id=90).
 
 Options:
 --------
 * Options to specify under which menu item the plugin command shall be stored
-    * g:dirdiff\_svn.menu\_priority '500.600'
-    * g:dirdiff\_svn.menu\_name     '&Plugin.DirDiff\ SVN'
+    * `g:dirdiff_svn.menu_priority` (default: `'500.600'`)
+    * `g:dirdiff_svn.menu_name`     (default: `'&Plugin.DirDiff SVN'`)
 * Options to overide the default keybindings
-    * g:dirdiff\_svn.keys.diff ('<leader>ds'), to start a svn diff session.
-    * g:dirdiff\_svn.keys.quit ('<leader>dq'), to end a svn diff session.
+    * `g:dirdiff_svn.keys.diff` (default: `<leader>ds`), to start a svn diff session.
+    * `g:dirdiff_svn.keys.quit` (default: `<leader>dq`), to end a svn diff session.
 
 To do list:
 -----------
 * Add ways to specify:
-    * files to ignore
-    * revision against which the diff shall be done
-* Write the vim-formatetd documentation
-* Support other SVN operations (tag to commit, log, blame, info, ...)
+    * files to ignore,
+    * revision against which the diff shall be done ;
+* Write the vim-formatetd documentation ;
+* Support other SVN operations (tag to commit, log, blame, info, ...).
 
 Licence:
 --------
