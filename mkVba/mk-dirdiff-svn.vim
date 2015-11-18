@@ -25,6 +25,7 @@ finally
 endtry
 finish
 README.md
+VimFlavor
 addon-info.json
 autoload/lh/svn.vim
 plugin/dirdiff-svn.vim
