@@ -1,15 +1,14 @@
 "=============================================================================
-" $Id$
 " File:         plugin/dirdiff-svn.vim         {{{1
 " Author:       Luc Hermitte <EMAIL:hermitte {at} free {dot} fr>
-"		<URL:http://code.google.com/p/lh-vim/>
+"		<URL:http://github.com/LucHermitte/dirdiff-svn>
 " Version:      001
 " Created:      07th Aug 2013
-" Last Update:  $Date$
+" Last Update:  21st Nov 2016
 "------------------------------------------------------------------------
 " Description:
 "       DirDiff like plugin for svn
-" 
+"
 "------------------------------------------------------------------------
 " Installation:
 "       Requires Vim7+, lh-vim-lib, VCS command
@@ -35,10 +34,10 @@ LetIfUndef g:dirdiff_svn.keys.diff     '<leader>ds'
 LetIfUndef g:dirdiff_svn.keys.quit     '<leader>dq'
 
 " Commands and Mappings {{{1
-call lh#menu#make('nic',
+call lh#menu#make('nc',
     \ g:dirdiff_svn.menu_priority.'.10', g:dirdiff_svn.menu_name.'.&Diff',
     \ g:dirdiff_svn.keys.diff, '', ':call lh#svn#diff()<cr>' )
-call lh#menu#make('nic',
+call lh#menu#make('nc',
     \ g:dirdiff_svn.menu_priority.'.20', g:dirdiff_svn.menu_name.'.&Quit',
     \ g:dirdiff_svn.keys.quit, '', ':call lh#svn#quit()<cr>' )
 " }}}1
